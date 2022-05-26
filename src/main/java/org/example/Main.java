@@ -3,7 +3,6 @@ package org.example;
 import java.io.*;
 
 import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.module.guice.*;
 import com.google.inject.Guice;
 
 public class Main
@@ -12,7 +11,7 @@ public class Main
     {
         System.err.println("hello world");
         var objectMapper = new ObjectMapper();
-        var injector = Guice.createInjector(new ObjectMapperModule(), new InjectionModule());
+        var injector = Guice.createInjector(new InjectionModule());
         var aFactory = injector.getInstance(AFactory.class);
         var a = aFactory.create("New instance of org.example.A !!!");
         System.err.println("a name: " + a.getName());
