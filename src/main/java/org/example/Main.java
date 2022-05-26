@@ -18,7 +18,7 @@ public class Main
         System.err.println("a name: " + a.getName());
         var file = new File("a.json");
         objectMapper.writer().writeValue(file, a);
-        var a2 = objectMapper.reader(new GuiceInjectableValues(injector)).readValue(file, A.class);
+        var a2 = objectMapper.reader(new WorkingGuiceInjectableValues(injector)).readValue(file, A.class);
         System.err.println("a2 name: " + a2.getName());
     }
 
